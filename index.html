@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FluxFlix — Modern Film Catalog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <div class="shell" role="application">
+    <aside class="sidebar" aria-label="Side menu">
+      <div class="brand">
+        <div class="logo">YSF</div>
+        <div>
+          <h1>YSFlix</h1>
+          <p>Best film catalog</p>
+        </div>
+      </div>
+      <div class="sidebar-content">
+        <div class="sort-group">
+          <h3>Sort By</h3>
+          <select id="sortSelect" class="select" title="Sort">
+            <option value="popular">Top Rated</option>
+            <option value="year_desc">Year (New-Old)</option>
+            <option value="year_asc">Year (Old-New)</option>
+          </select>
+        </div>
+
+        <div class="genre-group is-closed">
+          <div class="genre-toggle" id="genreToggle">
+            <h3>Genres</h3>
+            <div class="arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="genre-list" id="genreList" role="list"></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar" role="region" aria-label="Top controls">
+        <div class="search-wrap">
+          <div class="search" role="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="opacity:.6" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <input id="searchInput" placeholder="Search movies..." />
+            <button class="btn" id="clearSearch" title="Clear" style="display:none">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <section id="contentArea">
+        <div id="filmGrid" class="film-grid" aria-live="polite"></div>
+        <div id="emptyState" class="empty" style="display:none">No movies matched your filters.</div>
+      </section>
+
+      
+    </main>
+  </div>
+
+
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div id="modalCard" class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-hero">
+        <div class="hero-content">
+          <div class="modal-poster">
+            <img id="modalPosterImg" src="" alt="">
+          </div>
+          <div class="hero-info">
+            <h2 id="modalTitle"></h2>
+            <div class="hero-meta">
+              <div id="modalRating"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  style="color: #f5c518;">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg> <span></span></div>
+              <div id="modalYear"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg> <span></span></div>
+              <div id="modalRuntime"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg> <span></span></div>
+            </div>
+            <p id="modalDesc"></p>
+            <a id="imdbLink" href="#" target="_blank" rel="noopener noreferrer" class="imdb-button">View on IMDb</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-content">
+        <h3>Trailer</h3>
+        <div class="video-container">
+          <iframe id="modalTrailer" src="" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <h3>Director</h3>
+        <p id="modalDirector"></p>
+        <h3>Cast</h3>
+        <div id="modalCast"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
