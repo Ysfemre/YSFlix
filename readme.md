@@ -3,10 +3,9 @@
 YSFlix is a modern and responsive single-page movie catalog application built using vanilla HTML, CSS, and JavaScript. It allows users to browse top-rated movies, search, filter by genre, and view movie details.
 
 
-(./img/1.png")
+![image 1](./img/1.png)
 
-
-(./img/2.png)
+![image 2](./img/2.png)
 
 ## ✨ Features
 
