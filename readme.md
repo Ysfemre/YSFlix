@@ -22,5 +22,3 @@ YSFlix is a modern and responsive single-page movie catalog application built us
 - **CSS3** (Flexbox, Grid, Custom Properties, Transitions, Keyframes)
 - **JavaScript** (ES6 Modules, DOM Manipulation)
 
-
-Translated with DeepL.com (free version)
